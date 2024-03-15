@@ -8,7 +8,7 @@ public class FinalizerOne(ILogger<V1TestEntityController> logger) : IEntityFinal
     // Called when entity is marked as deleted
     public Task FinalizeAsync(Human entity)
     {
-        logger.LogInformation("Deleting entity {Entity}.", entity);
+        logger.LogInformation("Deleting an amazing human: {Entity}.", entity);
         return Task.CompletedTask;
     }
 }
