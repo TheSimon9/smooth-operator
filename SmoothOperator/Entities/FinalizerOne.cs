@@ -11,10 +11,6 @@ public class FinalizerOne(ILogger<HumanController> logger, IKubernetesClient cli
     public Task FinalizeAsync(HumanEntity entity)
     {
         logger.LogInformation("Deleting an amazing human: {Entity}.", entity);
-
-        entity.Status.Status = "Deleting";
-        entity = client.UpdateStatus(entity);
-        
         client.Delete<V1Pod>(entity.Metadata.Name, entity.Metadata.NamespaceProperty);
         return Task.CompletedTask;
     }

@@ -1,11 +1,11 @@
 apiVersion: intre.com/v1
 kind: Human
 metadata:
-  name: christian
+  name: simone
   namespace: smoothoperator
 spec:
-  username: chridesi
-  name: christian
+  username: rec
+  name: simone
   satisfaction: 100
 status:
   status: "CrCreated"
