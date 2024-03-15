@@ -1,12 +1,12 @@
-namespace: poltronesofa-system
-namePrefix: poltronesofa-
+namespace: smoothoperator
+namePrefix: smoothoperator-
 commonLabels:
-  operator: poltronesofa
+  operator: smoothoperator
 resources:
 - operator-role.yaml
 - operator-role-binding.yaml
 - deployment.yaml
-- testentitys_intre_com.yaml
+- humans_intre_com.yaml
 - namespace.yaml
 images:
 - name: operator

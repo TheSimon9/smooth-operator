@@ -4,10 +4,17 @@ Step 1: Creare il progetto e seguire
 
 Step 2: Creare robe che servono per operatore sotto cart /deploy 
 
-    dotnet kubeops generate op poltronesofa --out ./deploy
+    dotnet new tool-manifest
+    dotnet tool install KubeOps.Cli
+    dotnet kubeops generate op smoothoperator --out ./deploy
 
 Step 3: Buildare il dockerfile creato e caricarlo da qualche parte
 
-    docker build -t poltronesofa:latest .
-    docker tag poltronesofa:latest rg.fr-par.scw.cloud/namespace-sleepy-matsumoto/poltronesofa:latest
-    docker push rg.fr-par.scw.cloud/namespace-sleepy-matsumoto/poltronesofa:latest
+    docker build -t smoothoperator:latest .
+    docker tag smoothoperator:latest rg.fr-par.scw.cloud/namespace-sleepy-matsumoto/smoothoperator:latest
+    docker push rg.fr-par.scw.cloud/namespace-sleepy-matsumoto/smoothoperator:latest
+
+
+Step 4: Deploy
+
+    k apply -k deploy

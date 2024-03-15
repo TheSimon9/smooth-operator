@@ -22,13 +22,13 @@ rules:
 - apiGroups:
   - intre.com
   resources:
-  - testentitys
+  - humans
   verbs:
   - '*'
 - apiGroups:
   - intre.com
   resources:
-  - testentitys/status
+  - humans/status
   verbs:
   - get
   - update
