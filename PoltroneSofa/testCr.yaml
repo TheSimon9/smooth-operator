@@ -1,0 +1,11 @@
+apiVersion: intre.com/v1
+kind: TestEntity
+metadata:
+  name: example-testentity
+  namespace: poltronesofa-system
+spec:
+  username: johndoe
+  email: johndoe@example.com
+status:
+  status: "CrCreated"
+

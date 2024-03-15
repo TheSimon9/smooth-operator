@@ -1,0 +1,39 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: testentitys.intre.com
+spec:
+  group: intre.com
+  names:
+    kind: TestEntity
+    listKind: TestEntityList
+    plural: testentitys
+    singular: testentity
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        properties:
+          status:
+            nullable: false
+            properties:
+              status:
+                nullable: false
+                type: string
+            type: object
+          spec:
+            nullable: false
+            properties:
+              username:
+                nullable: false
+                type: string
+              email:
+                nullable: false
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
