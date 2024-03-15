@@ -8,13 +8,15 @@ public class Human :
     CustomKubernetesEntity<Human.EntitySpec, Human.EntityStatus>
 {
     public override string ToString()
-        => $"Test Entity ({Metadata.Name}): {Spec.Username} ({Spec.Email})";
+        => $"An amazing human being ({Metadata.Name}): {Spec.Username} ({Spec.Name}) with a satisfaction level of {Spec.Satisfaction}!";
 
     public class EntitySpec
     {
         public string Username { get; set; } = string.Empty;
 
-        public string Email { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        
+        public int Satisfaction { get; set; } = 0;
     }
 
     public class EntityStatus
