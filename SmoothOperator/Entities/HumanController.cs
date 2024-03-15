@@ -7,14 +7,14 @@ using Microsoft.Extensions.Logging;
 
 namespace SmoothOperator;
 
-[EntityRbac(typeof(Human), Verbs = RbacVerb.All)]
-public class V1TestEntityController(IKubernetesClient client,
-        ILogger<V1TestEntityController> logger, 
+[EntityRbac(typeof(HumanEntity), Verbs = RbacVerb.All)]
+public class HumanController(IKubernetesClient client,
+        ILogger<HumanController> logger, 
         EntityFinalizerAttacher<FinalizerOne, 
-        Human> finalizer1)
-    : IEntityController<Human>
+        HumanEntity> finalizer1)
+    : IEntityController<HumanEntity>
 {
-    public async Task ReconcileAsync(Human entity)
+    public async Task ReconcileAsync(HumanEntity entity)
     {
         logger.LogInformation("Reconciling entity {Entity}.", entity);
 

@@ -4,8 +4,8 @@ using KubeOps.Abstractions.Entities;
 namespace SmoothOperator;
 
 [KubernetesEntity(Group = "intre.com", ApiVersion = "v1", Kind = "Human")]
-public class Human :
-    CustomKubernetesEntity<Human.EntitySpec, Human.EntityStatus>
+public class HumanEntity :
+    CustomKubernetesEntity<HumanEntity.EntitySpec, HumanEntity.EntityStatus>
 {
     public override string ToString()
         => $"An amazing human being ({Metadata.Name}): {Spec.Username} ({Spec.Name}) with a satisfaction level of {Spec.Satisfaction}!";
