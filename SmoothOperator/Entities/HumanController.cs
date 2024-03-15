@@ -10,7 +10,7 @@ namespace SmoothOperator;
 [EntityRbac(typeof(HumanEntity), Verbs = RbacVerb.All)]
 public class HumanController(IKubernetesClient client,
         ILogger<HumanController> logger, 
-        EntityFinalizerAttacher<FinalizerOne, 
+        EntityFinalizerAttacher<HumanFinalizer, 
         HumanEntity> finalizer1)
     : IEntityController<HumanEntity>
 {

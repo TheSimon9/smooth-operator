@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace SmoothOperator;
 
-public class FinalizerOne(ILogger<HumanController> logger, IKubernetesClient client) : IEntityFinalizer<HumanEntity>
+public class HumanFinalizer(ILogger<HumanController> logger, IKubernetesClient client) : IEntityFinalizer<HumanEntity>
 {
     // Called when entity is marked as deleted
     public Task FinalizeAsync(HumanEntity entity)
