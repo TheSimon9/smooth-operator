@@ -1,12 +1,12 @@
 using KubeOps.Abstractions.Finalizer;
 using Microsoft.Extensions.Logging;
 
-namespace PoltroneSofa;
+namespace SmoothOperator;
 
-public class FinalizerOne(ILogger<V1TestEntityController> logger) : IEntityFinalizer<V1TestEntity>
+public class FinalizerOne(ILogger<V1TestEntityController> logger) : IEntityFinalizer<Human>
 {
     // Called when entity is marked as deleted
-    public Task FinalizeAsync(V1TestEntity entity)
+    public Task FinalizeAsync(Human entity)
     {
         logger.LogInformation("Deleting entity {Entity}.", entity);
         return Task.CompletedTask;

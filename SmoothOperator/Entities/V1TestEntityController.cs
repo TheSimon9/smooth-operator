@@ -5,16 +5,16 @@ using KubeOps.Abstractions.Rbac;
 using KubeOps.KubernetesClient;
 using Microsoft.Extensions.Logging;
 
-namespace PoltroneSofa;
+namespace SmoothOperator;
 
-[EntityRbac(typeof(V1TestEntity), Verbs = RbacVerb.All)]
+[EntityRbac(typeof(Human), Verbs = RbacVerb.All)]
 public class V1TestEntityController(IKubernetesClient client,
         ILogger<V1TestEntityController> logger, 
         EntityFinalizerAttacher<FinalizerOne, 
-        V1TestEntity> finalizer1)
-    : IEntityController<V1TestEntity>
+        Human> finalizer1)
+    : IEntityController<Human>
 {
-    public async Task ReconcileAsync(V1TestEntity entity)
+    public async Task ReconcileAsync(Human entity)
     {
         logger.LogInformation("Reconciling entity {Entity}.", entity);
 

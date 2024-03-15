@@ -1,11 +1,11 @@
 using k8s.Models;
 using KubeOps.Abstractions.Entities;
 
-namespace PoltroneSofa;
+namespace SmoothOperator;
 
-[KubernetesEntity(Group = "intre.com", ApiVersion = "v1", Kind = "TestEntity")]
-public class V1TestEntity :
-    CustomKubernetesEntity<V1TestEntity.EntitySpec, V1TestEntity.EntityStatus>
+[KubernetesEntity(Group = "intre.com", ApiVersion = "v1", Kind = "Human")]
+public class Human :
+    CustomKubernetesEntity<Human.EntitySpec, Human.EntityStatus>
 {
     public override string ToString()
         => $"Test Entity ({Metadata.Name}): {Spec.Username} ({Spec.Email})";
