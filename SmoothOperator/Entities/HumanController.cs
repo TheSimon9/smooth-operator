@@ -34,15 +34,32 @@ public class HumanController(IKubernetesClient client,
             {
                 Containers = new List<V1Container>
                 {
-                    new V1Container
+                    new()
                     {
-                        Name = entity.Metadata.Name,
-                        Image = "nginx"
+                        Name = $"human-being-{entity.Spec.Username}",
+                        Image = "nginx",
+                        Env = new List<V1EnvVar>()
+                        {
+                            new()
+                            {
+                                Name = "USERNAME",
+                                Value = entity.Spec.Username
+                            },
+                            new()
+                            {
+                                Name = "NAME",
+                                Value = entity.Spec.Name
+                            },
+                            new()
+                            {
+                                Name = "SATISFACTION",
+                                Value = entity.Spec.Satisfaction.ToString()
+                            }
+                        }
                     }
                 }
             }
         };
-        
         await client.CreateAsync(pod);
         
         entity.Status.Status = "Reconciled";
