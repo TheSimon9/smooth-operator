@@ -11,7 +11,7 @@ public class HumanFinalizer(ILogger<HumanController> logger, IKubernetesClient c
     public Task FinalizeAsync(HumanEntity entity)
     {
         logger.LogInformation("Deleting an amazing human: {Entity}.", entity);
-        client.Delete<V1Pod>(entity.Metadata.Name, entity.Metadata.NamespaceProperty);
+        client.Delete<V1Pod>($"human-being-{entity.Spec.Name}", entity.Metadata.NamespaceProperty);
         return Task.CompletedTask;
     }
 }

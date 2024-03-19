@@ -36,7 +36,7 @@ public class HumanController(IKubernetesClient client,
                 {
                     new()
                     {
-                        Name = $"human-being-{entity.Spec.Username}",
+                        Name = $"human-being-{entity.Spec.Name}",
                         Image = "nginx",
                         Env = new List<V1EnvVar>()
                         {
