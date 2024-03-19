@@ -6,6 +6,6 @@ metadata:
 spec:
   username: chridesi
   name: christian
-  satisfaction: 100
+  satisfaction: 5
 status:
   status: "CrCreated"
