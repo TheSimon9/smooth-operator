@@ -36,7 +36,7 @@ public class SiteController(IKubernetesClient client,
                 {
                     new()
                     {
-                        Name = $"website-{resource.Spec.Name}",
+                        Name = "amazing-website",
                         Image = "nginx",
                         Env = new List<V1EnvVar>()
                         {
