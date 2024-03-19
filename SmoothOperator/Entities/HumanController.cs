@@ -14,7 +14,7 @@ public class HumanController(IKubernetesClient client,
         HumanEntity> finalizer1)
     : IEntityController<HumanEntity>
 {
-    public async Task ReconcileAsync(HumanEntity entity)
+    public async Task ReconcileAsync(HumanEntity entity, CancellationToken cancellationToken)
     {
         logger.LogInformation("Reconciling entity {Entity}.", entity);
 
@@ -64,5 +64,10 @@ public class HumanController(IKubernetesClient client,
         
         entity.Status.Status = "Reconciled";
         await client.UpdateStatusAsync(entity);
+    }
+    
+    public Task DeletedAsync(HumanEntity entity, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
     }
 }

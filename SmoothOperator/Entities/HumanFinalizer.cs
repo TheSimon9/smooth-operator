@@ -8,10 +8,11 @@ namespace SmoothOperator;
 public class HumanFinalizer(ILogger<HumanController> logger, IKubernetesClient client) : IEntityFinalizer<HumanEntity>
 {
     // Called when entity is marked as deleted
-    public Task FinalizeAsync(HumanEntity entity)
+    public Task FinalizeAsync(HumanEntity entity, CancellationToken cancellationToken)
     {
         logger.LogInformation("Deleting an amazing human: {Entity}.", entity);
-        client.Delete<V1Pod>($"human-being-{entity.Spec.Name}", entity.Metadata.NamespaceProperty);
+        client.Delete<V1Pod>($"{entity.Metadata.Name}", entity.Metadata.NamespaceProperty);
         return Task.CompletedTask;
     }
+    
 }
