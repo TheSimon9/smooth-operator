@@ -1,0 +1,11 @@
+apiVersion: intre.com/v1
+kind: Site
+metadata:
+  name: intre
+  namespace: smoothoperator
+spec:
+  name: intre
+  address: www.intre.it
+  message: welcome to our amazing website
+status:
+  status: "CrCreated"
