@@ -1,0 +1,16 @@
+namespace: smoothoperator
+namePrefix: smoothoperator-
+commonLabels:
+  operator: smoothoperator
+resources:
+- operator-role.yaml
+- operator-role-binding.yaml
+- deployment.yaml
+- sites_intre_com.yaml
+- namespace.yaml
+images:
+- name: operator
+  newName: accessible-docker-image
+  newTag: latest
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
