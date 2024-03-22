@@ -1,20 +1,26 @@
-Step 1: Creare il progetto e seguire 
+# Smooth Operator
+
+The aim of this project is to show an example of a Kubernetes Operator developed through the KubeOps library.
+
+It's a Kubernetes operator that watches over the `sites.intre.com` CustomResource
+
+Reference:
 
     https://buehler.github.io/dotnet-operator-sdk/src/KubeOps.Operator/README.html
 
-Step 2: Creare robe che servono per operatore sotto cart /deploy 
+
+## How to generate the deploy manifests
+
+The KubeOps Cli automatically generates the manifest that you need in order to deploy and use the Operator.
 
     dotnet new tool-manifest
     dotnet tool install KubeOps.Cli
     dotnet kubeops generate op smoothoperator --out ./deploy
 
-Step 3: Buildare il dockerfile creato e caricarlo da qualche parte
 
-    docker build -t smoothoperator:latest .
-    docker tag smoothoperator:latest rg.fr-par.scw.cloud/namespace-sleepy-matsumoto/smoothoperator:latest
-    docker push rg.fr-par.scw.cloud/namespace-sleepy-matsumoto/smoothoperator:latest
+## How to run
 
+- Generate the deploy manifests
+- Build the Dockerfile under ./deploy folder and push it somewhere (over the rainbows)
+- Deploy the manifests under the ./deploy folder in a kubernetes cluster
 
-Step 4: Deploy
-
-    k apply -k deploy
